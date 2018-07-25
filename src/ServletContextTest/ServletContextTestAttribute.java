@@ -1,0 +1,23 @@
+package ServletContextTest;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+/**
+ * Created by hx on 2017/11/26.
+ */
+@WebServlet(name = "ServletContextTestAttribute" , urlPatterns = "/contextAttribute")
+public class ServletContextTestAttribute extends HttpServlet {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String hx = (String)this.getServletContext().getAttribute("hx");
+        response.getWriter().write("hx is very " + hx);
+    }
+}
